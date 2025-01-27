@@ -1,0 +1,32 @@
+github_workflow_content = """
+name: CI Pipeline   名称：CI管线
+
+on:   :
+  push:   推动:
+    branches:   分支:
+      - main   ——主要
+  pull_request:
+    branches:   分支:
+      - main   ——主要
+
+jobs:   工作:
+  build:   构建:
+    runs-on: ubuntu-latest   上运行:ubuntu-latest
+
+    steps:   步骤:
+    - uses: actions/checkout@v3-使用：actions/checkout@v3
+    - name: Set up Python—name：设置Python
+      uses: actions/setup-python@v4用途:行动/ setup-python@v4
+      with:   :
+        python-version: '3.x'   python版本:“3.倍”
+    - name: Run Python script—name：运行Python脚本
+      run: |   运行:|
+        python app.py
+"""
+
+import os   进口的
+os.makedirs(".github/workflows", exist_ok=True)os.makedirs(”。github /工作流”,exist_ok = True)
+with open(".github/workflows/main.yml", "w", encoding="utf-8") as workflow_file:张开(“.github /工作流/主要。Yml ", "w", encoding="utf-8")作为workflow_file：
+    workflow_file.write(github_workflow_content)
+
+
